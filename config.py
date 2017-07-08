@@ -27,12 +27,3 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
 
-
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd8068ci2cgjmgq',
-		'USER': 'rjcjryichndfex',
-		'PASSWORD': 'ukkcq_DRmIgSV5-ZZd4Te0VqHF',
-		'HOST': 'ec2-54-243-249-132.compute-1.amazonaws.com',
-		'PORT': '5432',
-    }
