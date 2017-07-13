@@ -1,8 +1,8 @@
+import datetime
 from app import db
 from sqlalchemy.dialects.postgresql import JSON
 
-
-class Result(db.Model):
+'''class Result(db.Model):
     __tablename__ = 'results'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -17,3 +17,26 @@ class Result(db.Model):
 
     def __repr__(self):
         return '<id {}>'.format(self.id)
+'''
+class Application(db.Model):
+    __tablename__ = 'application'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
+    createdtime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    deletedtime = db.Column(db.DateTime)
+
+    def __init__(self, name):
+        self.name = name
+
+
+class User(db.Model): 
+    __tablename__ = 'user'
+
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String())
+    lastname = db.Column(db.String())
+    email = db.Column(db.String())
+    password = db.Column(db.String())
+    application = db.Column(db.Integer, db.ForeignKey("application.id"))
+    
